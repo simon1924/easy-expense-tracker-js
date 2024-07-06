@@ -1,0 +1,47 @@
+:root{
+    --input-color: #99A3BA;
+    --input-border-focus: #275EFE;
+    --input-placeholder: #CBD1DC;
+    --input-border-focus: #275EFE;
+}
+
+
+body{
+    background-color: #fffdd0;
+    text-align: center;
+    font-family: Arial;
+}
+
+div{
+    padding: 30px;
+}
+
+.prima{
+    border-radius: 7px;
+    padding: 8px;
+}
+&::placeholder {
+    color: var(--input-placeholder);
+}
+&:focus {
+    outline: none;
+    border-color: var(--input-border-focus);
+}
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-css{
+    flex: 1 0 21%;
+    padding: 10px;
+    margin: 25px;
+    border: 2px solid black;
+    border-radius: 6px;
+    width: 100px;
+}
+
+.card-container > .card-css:hover {
+    background-color: green;
+}

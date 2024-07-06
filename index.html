@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+
+    <h1>Account manager</h1>
+    <main>
+
+        <div>
+            <div>
+                <h3>Aggiungi nuovo account</h3>
+                <input id="accountInput" type="text" class="prima" placeholder="account">
+                <button id="aggiungiAccount" class="prima">Aggiungi</button>
+            </div>
+            <div>
+                <h3>Aggiungi transazioni di entrata ed uscita</h3>
+                <select id="acc" class="prima">
+                    <option value="portafoglio">portafoglio</option>
+                    <option value="conto corrente">conto corrente</option>
+                    <option value="conto deposito">conto deposito</option>
+                </select>
+
+                <input id="quantita" type="number" placeholder="quantita" value="0" class="prima">
+
+                <!-- <select id="selezione">
+                    <option value="entrata">entrata</option>
+                    <option value="uscita">uscita</option>
+                </select> -->
+
+                <button id="invia" class="prima">Invia</button>
+            </div>
+
+        </div>
+        <div class="card-container">
+
+        </div>
+
+        <div>
+            <button id="ripulisci" class="prima">Ripulisci account</button>
+        </div>
+
+
+    </main>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
