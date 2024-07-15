@@ -7,6 +7,7 @@ class Account {
         this.accounts = this.caricaAccounts();
         console.log(`array degli accounts: ${this.accounts}`);
         this.creaCard(this.accounts);
+        this.creaSelect(this.accounts);
     }
 
 
@@ -102,6 +103,23 @@ class Account {
         })
     }
 
+    creaSelect(arr) {
+        const divSelect = document.getElementById("divSelect");
+
+        let selectList = document.createElement("select");
+        selectList.id = "acc";
+        selectList.className = "prima";
+
+        divSelect.appendChild(selectList);
+
+        arr.forEach(item => {
+            let option = document.createElement("option");
+            option.value = item.nome;
+            option.text = item.nome;
+            selectList.appendChild(option);
+        })
+    }
+
     azzeraConto(nome) {
         if (confirm("azzerare il conto?")) {
             for (let i = 0; i < this.accounts.length; i++) {
@@ -119,11 +137,45 @@ class Account {
     }
 
     aggiungiAccount(account) {
-        const seleziona = document.getElementById("acc");
 
-        let aggiugni = `<option value="${account}">${account}</option>`;
+        let array = [];
+        for (let i = 0; i < this.accounts.length; i++) {
+            array.push(this.accounts[i]["nome"]);
+        }
+        console.log(array);
+        if (!array.includes(account)) {
 
-        seleziona.innerHTML += aggiugni;
+            let temporaneo =
+            {
+                "nome": account,
+                "bilancio": 0
+            };
+
+            this.accounts.push(temporaneo);
+            const seleziona = document.getElementById("acc");
+
+            let aggiugni = `<option value="${account}">${account}</option>`;
+
+            seleziona.innerHTML += aggiugni;
+            localStorage.setItem("accounts", JSON.stringify(this.accounts));
+
+
+            const selezionaContainer = document.querySelector(".card-container");
+
+
+
+
+            let contenuto = `<div class="card-css">
+                <h5>${account}</h5>
+                <p id="${account}"></h5>
+            
+                </div>`;
+
+            selezionaContainer.innerHTML += contenuto;
+
+            //bisgona creare le card di quelli che si aggiungono
+
+        }
     }
 
     ripulisci() {
